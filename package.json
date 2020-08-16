@@ -1,0 +1,51 @@
+{
+  "name": "casbin-pubsub-watcher",
+  "version": "1.0.0",
+  "description": "Google Cloud Pub/Sub watcher for node-casbin",
+  "main": "lib/watch.js",
+  "scripts": {
+    "prepack": "npm run lint && npm run test && npm build",
+    "postpack": "rimraf lib",
+    "prettier": "prettier --write **/*.{ts,js}",
+    "build": "rimraf lib && tsc -p tsconfig.json",
+    "lint": "eslint -c .eslintrc.js --ext .ts src",
+    "test": "jest --detectOpenHandles --runInBand"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.9",
+    "@types/node": "^14.0.27",
+    "@typescript-eslint/eslint-plugin": "^3.9.0",
+    "@typescript-eslint/parser": "^3.9.0",
+    "casbin": "^5.1.2",
+    "eslint": "^7.6.0",
+    "jest": "^26.4.0",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.2.0",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "@google-cloud/pubsub": "^2.3.0"
+  },
+  "files": [
+    "lib",
+    "examples"
+  ],
+  "homepage": "http://casbin.org",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elaijuh/casbin-pubsub-watcher.git"
+  },
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "lint-staged": {
+    "*.{ts,js}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
