@@ -1,11 +1,11 @@
 {
-  "name": "casbin-pubsub-watcher",
+  "name": "@casbin/pubsub-watcher",
   "version": "1.0.0",
   "description": "Google Cloud Pub/Sub watcher for node-casbin",
   "main": "lib/watch.js",
   "types": "lib/watcher.d.ts",
   "scripts": {
-    "prepack": "npm run lint && npm run test && npm build",
+    "prepack": "npm run lint && npm run build",
     "postpack": "rimraf lib",
     "prettier": "prettier --write **/*.{ts,js}",
     "build": "rimraf lib && tsc -p tsconfig.json",
@@ -20,6 +20,7 @@
     "casbin": "^5.1.2",
     "eslint": "^7.6.0",
     "jest": "^26.4.0",
+    "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
     "ts-jest": "^26.2.0",
@@ -35,7 +36,7 @@
   "homepage": "http://casbin.org",
   "repository": {
     "type": "git",
-    "url": "https://github.com/elaijuh/casbin-pubsub-watcher.git"
+    "url": "git+https://github.com/elaijuh/casbin-pubsub-watcher.git"
   },
   "licenses": [
     {
@@ -48,5 +49,13 @@
       "prettier --write",
       "git add"
     ]
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/elaijuh/casbin-pubsub-watcher/issues"
+  },
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "author": "hjl <hjiale@gmail.com>"
 }

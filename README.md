@@ -1,21 +1,26 @@
 # pubsub-watcher
 
+[![NPM version][npm-image]][npm-url]
+
+[npm-image]: https://img.shields.io/npm/v/@casbin/pubsub-watcher.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/@casbin/pubsub-watcher
+
 Google Cloud Pub/Sub watcher for node-casbin
 
 # Installation
 
 ```shell script
 # NPM
-npm install --save pubsub-watcher
+npm install --save @casbin/pubsub-watcher
 
 # Yarn
-yarn add pubsub-watcher
+yarn add @casbin/pubsub-watcher
 ```
 
 # Simple Example
 
 ```typescript
-import { PubsubWatcher } from 'pubsub-watcher';
+import { PubsubWatcher } from '@casbin/pubsub-watcher';
 import { newEnforcer } from 'casbin';
 
 // Initialize the watcher.
