@@ -1,18 +1,18 @@
-import { PubSub, ClientConfig, Subscription } from '@google-cloud/pubsub';
+import { PubSub, ClientConfig } from '@google-cloud/pubsub';
 
 export class PubsubConnection {
   private readonly options?: ClientConfig;
   public client: PubSub;
 
-  constructor(options?: ClientConfig) {
+  public constructor(options?: ClientConfig) {
     this.options = options;
   }
 
-  public open() {
+  public open(): void {
     this.client = new PubSub(this.options);
   }
 
-  public close() {
-    this.client.close();
+  public close(): Promise<void> {
+    return this.client.close();
   }
 }

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Google Cloud Pub/Sub watcher for node-casbin",
   "main": "lib/watch.js",
+  "types": "lib/watcher.d.ts",
   "scripts": {
     "prepack": "npm run lint && npm run test && npm build",
     "postpack": "rimraf lib",

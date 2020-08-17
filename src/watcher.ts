@@ -10,7 +10,7 @@ export class PubsubWatcher implements Watcher {
 
   private callback: () => void;
 
-  public static async newWatcher(options?: ClientConfig, topicName?: string, subscriptionName?: string): Promise<PubsubWatcher> {
+  public static newWatcher(options?: ClientConfig, topicName?: string, subscriptionName?: string): PubsubWatcher {
     return new PubsubWatcher(options, topicName, subscriptionName);
   }
 
@@ -23,15 +23,20 @@ export class PubsubWatcher implements Watcher {
 
     this.subscription = this.pubsubConnection.client.topic(this.topicName).subscription(this.subscriptionName);
     // Purge all messages, no need to replay as casbin cache will be updated at start up
-    this.subscription.seek(new Date()).then(() => {
-      this.subscription.on('message', this.messageHandler.bind(this));
-    });
+    this.subscription
+      .seek(new Date())
+      .then(() => {
+        this.subscription.on('message', this.messageHandler.bind(this));
+      })
+      .catch(() => {});
   }
 
   private messageHandler(message: Message): void {
     console.log(`Debug: ${this.subscriptionName} got message ID: ${message.id}`);
     message.ack();
-    if (this.callback) this.callback();
+    if (this.callback) {
+      this.callback();
+    }
   }
 
   public async update(): Promise<boolean> {
@@ -39,7 +44,7 @@ export class PubsubWatcher implements Watcher {
     return true;
   }
 
-  public setUpdateCallback(callback: () => void) {
+  public setUpdateCallback(callback: () => void): void {
     this.callback = callback;
   }
 
