@@ -1,8 +1,8 @@
 {
   "name": "@casbin/pubsub-watcher",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Google Cloud Pub/Sub watcher for node-casbin",
-  "main": "lib/watch.js",
+  "main": "lib/watcher.js",
   "types": "lib/watcher.d.ts",
   "scripts": {
     "prepack": "npm run lint && npm run build",
