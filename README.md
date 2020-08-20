@@ -1,6 +1,7 @@
 # pubsub-watcher
 
 [![NPM version][npm-image]][npm-url]
+![CI](https://github.com/node-casbin/pubsub-watcher/workflows/CI/badge.svg)
 
 [npm-image]: https://img.shields.io/npm/v/@casbin/pubsub-watcher.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/@casbin/pubsub-watcher
@@ -41,3 +42,10 @@ watcher.setUpdateCallback(() => console.log('Casbin need update'));
 # Test
 
 Set `GOOGLE_APPLICATION_CREDENTIALS` in environment variable and `npm run test`
+
+Test uses [Pub/Sub emulator](https://cloud.google.com/pubsub/docs/emulator)
+
+```sh
+gcloud beta emulators pubsub start --project=casbin
+PUBSUB_EMULATOR_HOST=localhost:8085 PUBSUB_PROJECT_ID=casbin npm run test
+```
